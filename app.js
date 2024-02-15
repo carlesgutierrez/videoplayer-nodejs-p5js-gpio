@@ -26,7 +26,16 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('Cliente desconectado');
   });
+
+  socket.on('emitedSketchStart', () => {
+    const currentValue = buttonLine.getValue();
+    io.emit('buttonState', currentValue); // Usa io.emit para enviar a todos los clientes
+  });
+
+  
 });
+
+
 
 async function setupGPIO() {
   try {

@@ -5,16 +5,14 @@ var socket;
 
 function preload(){
     video1 = createVideo(
-    ['assets/video1.webm' /*, 'assets/small.ogv', 'assets/small.webm'*/],
-    vidLoad1
+    ['assets/video1.webm' /*, 'assets/small.ogv', 'assets/small.webm'*/]
   );
   video2 = createVideo(
-    ['assets/video2.webm' /*, 'assets/small.ogv', 'assets/small.webm'*/],
-    vidLoad2
+    ['assets/video2.webm' /*, 'assets/small.ogv', 'assets/small.webm'*/]
   );
 }
 
-
+/*
 // This function is called when the video loads
 function vidLoad1() {
   if(bVideo1Active){
@@ -24,7 +22,7 @@ function vidLoad1() {
     console.log("loaded and play video1");
   }
 
-}
+}*/
 
 function playVideo1(){
     
@@ -38,7 +36,7 @@ function playVideo1(){
   console.log("bVideo1Active = "+bVideo1Active);
 }
 
-
+/*
 // This function is called when the video loads
 function vidLoad2() {
   if(!bVideo1Active){
@@ -49,7 +47,7 @@ function vidLoad2() {
   }else{
     video2.hide();
   }
-}
+}*/
 
 function playVideo2(){
     
@@ -66,19 +64,35 @@ function playVideo2(){
 function setup() {
    createCanvas(windowWidth, windowHeight);
 
+   //setFullScreen();
 
    setupSocketIO();
+
+   removeBars();
+
+   video1.loop();
+   video1.volume(0);
+   video1.position(0, 0, 'fixed');
+
+   //video2.loop();
+   video2.position(0, 0, 'fixed');
+   video2.hide();
+
+   console.log("loaded video1 & video2 and play just video 1");
+
+
+}
+
+//------------------------------
+function removeBars(){
+    const elements = document.getElementsByClassName('nav preview-nav');
+  while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
 }
 
 function draw() {
-  background(220);
-  if(bVideo1Active){
-    fill(255);
-    //image(video1, 0, 0, video.width, video.height);
-  }else {
-
-  }
-    
+  //background(220);
   //text("fps["+nf(str(frameRate()),0, 0)+"]", 20, 20);
 }
 
@@ -98,6 +112,10 @@ function setupSocketIO(){
     
   });
 
+  var data = {
+  };
+  socket.emit('emitedSketchStart', data);
+
 }
 
 function mouseReleased(){
@@ -111,12 +129,14 @@ function mousePressed(){
 }
 
 function keyReleased(){
-  if(key=="f"){
-    //if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
-      let fs = fullscreen();
-      fullscreen(!fs);
-    //}
+  if(key=="f" || key=="F"){
+    setFullScreen();
   }
+}
+
+function setFullScreen(){
+        let fs = fullscreen();
+      fullscreen(!fs);
 }
 
 
