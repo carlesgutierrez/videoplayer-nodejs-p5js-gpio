@@ -14,13 +14,16 @@
 
 ###Install  SW
 
- ip addr show
+ sudo apt install openssh-server
  sudo systemctl start ssh
  sudo systemctl status ssh
- sudo apt-install openssh-server
+ ip addr show
+ ( now your are able to connect via ssh / putty ... with this local ip)
  
  
- sudo apt-get install libgpiod2
+ 
+ 
+ sudo apt-get install libgpiod2a
  sudo apt install gpiod libgpiod-dev libgpiod-doc libnode-dev
  npm install node-libgpiod
  gpiomon --num-events=1 --quiet GPIO27
