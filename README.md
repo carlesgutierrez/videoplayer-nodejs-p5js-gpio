@@ -4,13 +4,13 @@
 
 ###config ubuntu
  sudo apt update
- desactivar ScreenSaver
- Poner autologinDeveolo
- Crear carpeta Develop en Home
+ deactivate ScreenSaver
+ activate user autologin 
+ create folder Develop at Home
  open terminal 
  cd Develop
  git clone thisRepo
- install ubuntu updates anb deactivate all automatic updates and advices
+ install ubuntu updates anb deactivate all automatic updates and advices if required
 
 ###Install  SW
 
