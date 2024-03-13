@@ -27,8 +27,8 @@
 ## Open ans install nodejs project requirements 
  
 ##Manually Install libraríes for gpio libraries with nodejs
- - sudo apt-get install libgpiod2a
  - sudo apt install gpiod libgpiod-dev libgpiod-doc libnode-dev
+ - sudo apt install npm
  - npm install node-libgpiod
  - gpiomon --num-events=1 --quiet GPIO27
  - gpioget 4 27
