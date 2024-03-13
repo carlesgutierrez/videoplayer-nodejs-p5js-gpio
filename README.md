@@ -14,11 +14,14 @@
 
 ###Install  SW
 
- sudo apt install openssh-server
- sudo systemctl start ssh
- sudo systemctl status ssh
- ip addr show
- ( now your are able to connect via ssh / putty ... with this local ip)
+ - sudo apt install openssh-server
+ - sudo systemctl start ssh
+ - sudo systemctl status ssh
+ - ip addr show
+ 
+ Note: Now your are able to connect via ssh / putty / winSCP ... using this local ip from another computer in the same local network.
+
+ Use winSCP to move 2 videos ( movie1.webm and movie2.webm ) into the public/assets/ folder
  
  
  
