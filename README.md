@@ -14,6 +14,7 @@
 
 ###Install  SW
 
+ - sudo apt install nodejs
  - sudo apt install openssh-server
  - sudo systemctl start ssh
  - sudo systemctl status ssh
@@ -22,8 +23,10 @@
  Note: Now your are able to connect via ssh / putty / winSCP ... using this local ip from another computer in the same local network.
 
  - Use winSCP to move 2 videos ( movie1.webm and movie2.webm ) into the public/assets/ folder
+
+## Open ans install nodejs project requirements 
  
- ##Install libraríes for gpio libraries with nodejs
+##Manually Install libraríes for gpio libraries with nodejs
  - sudo apt-get install libgpiod2a
  - sudo apt install gpiod libgpiod-dev libgpiod-doc libnode-dev
  - npm install node-libgpiod
