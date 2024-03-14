@@ -42,9 +42,11 @@
  - open http://localhost:3000 ( you can play and test with mousePressed events to swap between the 2 videos )
 ###AutoStart
 
-##Set/connect button pin at 27 with mass to press button
+##Interaction
+ - Create a circuit button with: pin 27 to 3V3 power sd 
  - ![image](https://github.com/carlesgutierrez/videoplayer-nodejs-p5js-gpio/assets/203877/dbfcf1e3-86c6-45ab-b09a-3314628d0b8b)
 
-
-
+## Auto Start App
  Add 2 scripts ( .sh ) into ububtu start apps
+  - start server
+  - start app
