@@ -1,6 +1,11 @@
 let bVideo1Active = false;
 let video1, video2;
 var socket;
+let timeNoPlayingMax = 13000;
+let timerStartVideo1;
+let timerStartVideo2;
+let bRestarVideo1 = true;
+let bRestarVideo2 = true;
 
 
 function preload(){
@@ -12,17 +17,6 @@ function preload(){
   );
 }
 
-/*
-// This function is called when the video loads
-function vidLoad1() {
-  if(bVideo1Active){
-    video1.loop();
-    //video.hide();
-    video1.position(0, 0, 'fixed');
-    console.log("loaded and play video1");
-  }
-
-}*/
 
 function playVideo1(){
     
@@ -33,21 +27,12 @@ function playVideo1(){
     video1.loop();
     video1.position(0, 0, 'fixed');
 
-  console.log("bVideo1Active = "+bVideo1Active);
+    bVideo1Active = true;
+    timerStartVideo1 = millis();
+
+    console.log("playVideo1() --> bVideo1Active = "+bVideo1Active);
 }
 
-/*
-// This function is called when the video loads
-function vidLoad2() {
-  if(!bVideo1Active){
-    video2.loop();
-    //video.hide();
-    video2.position(0, 0, 'fixed');
-    console.log("loaded and play video2");
-  }else{
-    video2.hide();
-  }
-}*/
 
 function playVideo2(){
     
@@ -58,7 +43,10 @@ function playVideo2(){
     video2.loop();
     video2.position(0, 0, 'fixed');
 
-  console.log("bVideo1Active = "+bVideo1Active);
+    bVideo1Active = false;
+    timerStartVideo2 = millis();
+
+  console.log("playVideo2() --> bVideo1Active = "+bVideo1Active);
 }
 
 function setup() {
@@ -73,12 +61,15 @@ function setup() {
    video1.loop();
    video1.volume(0);
    video1.position(0, 0, 'fixed');
+   bVideo1Active = true;
 
    //video2.loop();
    video2.position(0, 0, 'fixed');
    video2.hide();
 
-   console.log("loaded video1 & video2 and play just video 1");
+
+
+   console.log("loaded video1 & video2 and play just video 1, so bVideo1Active = "+bVideo1Active);
 
 
 }
@@ -92,8 +83,18 @@ function removeBars(){
 }
 
 function draw() {
-  //background(220);
-  //text("fps["+nf(str(frameRate()),0, 0)+"]", 20, 20);
+
+  //check unactivi vídeo to play loop from start or not
+  if(bVideo1Active){ 
+    //check restart for video2
+    let ellapsedTimeVideo2 = millis() - timerStartVideo2;
+    if(ellapsedTimeVideo2 > timeNoPlayingMax)video2.stop();
+  }
+  else{
+    //check restart for video1
+    let ellapsedTimeVideo1 = millis() - timerStartVideo1;
+    if(ellapsedTimeVideo1 > timeNoPlayingMax)video1.stop();
+  }
 }
 
 function setupSocketIO(){
@@ -135,8 +136,8 @@ function keyReleased(){
 }
 
 function setFullScreen(){
-        let fs = fullscreen();
-      fullscreen(!fs);
+  let fs = fullscreen();
+  fullscreen(!fs);
 }
 
 
