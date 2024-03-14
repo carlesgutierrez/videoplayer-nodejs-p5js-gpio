@@ -34,6 +34,12 @@
  - gpioget 4 27
  - npm install socket.io@2.4.0 ( do not force nothig )
 
+## Start App
+
+ - node app.js
+ - now server is open and listening
+ - at firefox : manaual abilitate auto play media content at security --> permisions --> Allow Audio and Video for all
+ - open http://localhost:3000 ( you can play and test with mousePressed events to swap between the 2 videos )
 ###AutoStart
 
  Add 2 scripts ( .sh ) into ububtu start apps
