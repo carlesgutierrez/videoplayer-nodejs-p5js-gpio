@@ -3,43 +3,43 @@
 ##Install Ubuntu 20.03
 
 ###config ubuntu
-
-user: carles
+ - sudo apt update
+ - deactivate ScreenSaver
+ - activate user autologin 
+ - create folder Develop at Home
+ - open terminal 
+ - cd Develop
+ - git clone thisRepo
+ - install ubuntu updates anb deactivate all automatic updates and advices if required
 
 ###Install  SW
 
- sudo apt-get update
+ - sudo apt install nodejs
+ - sudo apt install openssh-server
+ - sudo systemctl start ssh
+ - sudo systemctl status ssh
+ - ip addr show
+ 
+ Note: Now your are able to connect via ssh / putty / winSCP ... using this local ip from another computer in the same local network.
 
-	122  sudo apt install chromium-browser -y
-	124  chromium-browser
-	125  chromium-browser --autoplay-policy=no-user-gesture-required
+ - Use winSCP to move 2 videos ( movie1.webm and movie2.webm ) into the public/assets/ folder
 
+## Open ans install nodejs project requirements 
+ 
+##Manually Install libraríes for gpio libraries with nodejs
+ - sudo apt install gpiod libgpiod-dev libgpiod-doc libnode-dev
+ - sudo apt install npm
+ - npm install node-libgpiod
+ - gpiomon --num-events=1 --quiet GPIO27
+ - gpioget 4 27
+ - npm install socket.io@2.4.0 ( do not force nothig )
 
-	ip addr show
-	sudo systemctl start ssh
-	sudo systemctl status ssh
-	sudo apt-install openssh-server
-	//sudo apt -y install vdpau-driver-all
+## Start App
 
-	//Crear proyecto
-	mkdir nodejs-p5js-gpio
-	147  cd nodejs-p5js-gpio/
-	148  npm init -y
-	149  npm install express p5 onoff
-	150  touch app.js
-	151  mkdir public
-	152  cd public/
-	153  touch index.html
-	154  touch sketch.js
-
-
-	sudo apt-get install libgpiod2
-	sudo apt install gpiod libgpiod-dev libgpiod-doc libnode-dev
-	npm install node-libgpiod
-	gpiomon --num-events=1 --quiet GPIO27
-	gpioget 4 27
-	npm install socket.io@2.4.0 ( no forzar nada )
-
+ - node app.js
+ - now server is open and listening
+ - at firefox : manaual abilitate auto play media content at security --> permisions --> Allow Audio and Video for all
+ - open http://localhost:3000 ( you can play and test with mousePressed events to swap between the 2 videos )
 ###AutoStart
 
  Add 2 scripts ( .sh ) into ububtu start apps
