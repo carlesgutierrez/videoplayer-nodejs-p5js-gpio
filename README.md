@@ -42,4 +42,9 @@
  - open http://localhost:3000 ( you can play and test with mousePressed events to swap between the 2 videos )
 ###AutoStart
 
+##Set/connect button pin at 27 with mass to press button
+ - ![image](https://github.com/carlesgutierrez/videoplayer-nodejs-p5js-gpio/assets/203877/dbfcf1e3-86c6-45ab-b09a-3314628d0b8b)
+
+
+
  Add 2 scripts ( .sh ) into ububtu start apps
