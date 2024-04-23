@@ -6,6 +6,8 @@ let timerStartVideo1;
 let timerStartVideo2;
 let bRestarVideo1 = true;
 let bRestarVideo2 = true;
+let timeMaxWaitingHideCursor = 3000;
+let timeWaitingHideCursor = 0;
 
 
 function preload(){
@@ -52,6 +54,7 @@ function playVideo2(){
 function setup() {
    createCanvas(windowWidth, windowHeight);
 
+   timeWaitingHideCursor = millis();
    //setFullScreen();
 
    setupSocketIO();
@@ -83,6 +86,10 @@ function removeBars(){
 }
 
 function draw() {
+
+  //hide cursor after a while -> https://ostechnix.com/launch-web-browsers-in-kiosk-mode-full-screen-from-cli/
+  let ellapsedTimeHideCursor = millis() - timeWaitingHideCursor;
+  if(ellapsedTimeHideCursor > timeMaxWaitingHideCursor)noCursor();
 
   //check unactivi vídeo to play loop from start or not
   if(bVideo1Active){ 
@@ -127,11 +134,15 @@ function mouseReleased(){
 function mousePressed(){  
   if(bVideo1Active)playVideo1();
   else playVideo2();
+
 }
 
 function keyReleased(){
   if(key=="f" || key=="F"){
     setFullScreen();
+  }
+  if(key=="c" || key =="C"){
+    noCursor();
   }
 }
 
