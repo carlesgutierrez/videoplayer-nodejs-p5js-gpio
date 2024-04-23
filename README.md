@@ -1,4 +1,4 @@
-# Project Cabins
+# VideoPlayer Switcher for RPI5
 
 ## Requirements: RPI5 + Ubuntu 20.03
 
