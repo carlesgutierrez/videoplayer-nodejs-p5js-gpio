@@ -1,52 +1,55 @@
-#Proyecto Cabinas
+# Project Cabins
 
-##Install Ubuntu 20.03
+## Requirements: RPI5 + Ubuntu 20.03
 
-###config ubuntu
- - sudo apt update
- - deactivate ScreenSaver
- - activate user autologin 
- - create folder Develop at Home
- - open terminal 
- - cd Develop
- - git clone thisRepo
- - install ubuntu updates anb deactivate all automatic updates and advices if required
+### Configure Ubuntu
+- Run `sudo apt update`
+- Deactivate the screensaver
+- Enable user auto-login
+- Create a 'Develop' folder in Home directory
+- Open the terminal
+- Change directory to Develop with `cd Develop`
+- Clone this repository using `git clone thisRepo`
+- Install Ubuntu updates and deactivate all automatic updates and notifications if required
 
-###Install  SW
+### Install Software
 
- - sudo apt install nodejs
- - sudo apt install openssh-server
- - sudo systemctl start ssh
- - sudo systemctl status ssh
- - ip addr show
- 
- Note: Now your are able to connect via ssh / putty / winSCP ... using this local ip from another computer in the same local network.
+- Install Node.js with `sudo apt install nodejs`
+- Install OpenSSH Server with `sudo apt install openssh-server`
+- Start the SSH service with `sudo systemctl start ssh`
+- Check SSH service status with `sudo systemctl status ssh`
+- Display network information with `ip addr show`
 
- - Use winSCP to move 2 videos ( movie1.webm and movie2.webm ) into the public/assets/ folder
+Note: You can now connect via SSH, PuTTY, WinSCP, etc., using this local IP from another computer on the same local network.
 
-## Open ans install nodejs project requirements 
- 
-##Manually Install libraríes for gpio libraries with nodejs
- - sudo apt install gpiod libgpiod-dev libgpiod-doc libnode-dev
- - sudo apt install npm
- - npm install node-libgpiod
- - gpiomon --num-events=1 --quiet GPIO27
- - gpioget 4 27
- - npm install socket.io@2.4.0 ( do not force nothig )
+- Use WinSCP to transfer two videos (`movie1.webm` and `movie2.webm`) into the `public/assets/` folder
 
-## Start App
+## Open and Install Node.js Project Requirements
 
- - node app.js
- - now server is open and listening
- - at firefox : manaual abilitate auto play media content at security --> permisions --> Allow Audio and Video for all
- - open http://localhost:3000 ( you can play and test with mousePressed events to swap between the 2 videos )
-###AutoStart
+## Manually Install Libraries for GPIO with Node.js
+- Install required packages with `sudo apt install gpiod libgpiod-dev libgpiod-doc libnode-dev`
+- Install NPM with `sudo apt install npm`
+- Install node-libgpiod with `npm install node-libgpiod`
+- Monitor GPIO27 with `gpiomon --num-events=1 --quiet GPIO27`
+- Read GPIO pin value with `gpioget 4 27`
+- Install a specific version of socket.io without forcing updates with `npm install socket.io@2.4.0`
 
-##Interaction
- - Create a circuit button with: pin 27 to 3V3 power sd 
- - ![image](https://github.com/carlesgutierrez/videoplayer-nodejs-p5js-gpio/assets/203877/dbfcf1e3-86c6-45ab-b09a-3314628d0b8b)
+### Settings for Firefox
+- Firefox will be used to load our site since it performs better on RPI5 than Chrome
+- Go to Firefox settings, navigate to Security -> Permissions, and enable Auto-Play for Audio and Video
+
+### AutoStart
+- Add two scripts to startup:
+  - `node app.js` (the server will now be open and listening)
+  - Open `http://localhost:3000` in a browser (you can play and test mouse-pressed events to switch between the two videos)
+
+## Interaction
+- Connect PIN 27 to your button circuit for video switching.
+- Press and release this button to switch videos.
+- Create a button circuit connecting PIN 27 to the 3V3 power supply
+- ![image](https://github.com/carlesgutierrez/videoplayer-nodejs-p5js-gpio/assets/203877/dbfcf1e3-86c6-45ab-b09a-3314628d0b8b)
 
 ## Auto Start App
- Add 2 scripts ( .sh ) into ububtu start apps
-  - start server
-  - start app
+- Add two scripts (.sh files) to Ubuntu's startup applications:
+  - Script to start the server
+  - Script to launch the app
