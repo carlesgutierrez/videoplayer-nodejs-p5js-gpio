@@ -1,5 +1,5 @@
 # p5js VideoPlayer switcher
-# Tested with RPI5 with Ubuntu 20.03
+## for RPI5 and Ubuntu 20.03
 
 ### Configure Ubuntu
 - Run `sudo apt update`
