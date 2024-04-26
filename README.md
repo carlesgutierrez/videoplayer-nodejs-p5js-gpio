@@ -1,7 +1,8 @@
 # p5js VideoPlayer switcher for RPI5 and Ubuntu 20.03
 
 ## Steps:
-### Configure Ubuntu
+
+### Install 20.03 from PiImager then: 
 - Run `sudo apt update`
 - Deactivate the screensaver
 - Enable user auto-login
