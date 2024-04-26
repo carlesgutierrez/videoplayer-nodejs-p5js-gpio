@@ -1,4 +1,4 @@
-  # VideoPlayer Switcher for RPI5
+  # p5js VideoPlayer Switcher for RPI5
 
 ## Requirements: RPI5 + Ubuntu 20.03
 
