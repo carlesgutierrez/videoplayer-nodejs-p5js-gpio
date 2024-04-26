@@ -2,7 +2,8 @@
 
 ## Steps:
 
-### Install 20.03 from PiImager then: 
+### Install 20.03 from PiImager
+After a succesfull installation let's do some configure:
 - Run `sudo apt update`
 - Deactivate the screensaver
 - Enable user auto-login
