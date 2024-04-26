@@ -1,4 +1,4 @@
-# VideoPlayer Switcher for RPI5
+  # VideoPlayer Switcher for RPI5
 
 ## Requirements: RPI5 + Ubuntu 20.03
 
@@ -46,9 +46,27 @@ Note: You can now connect via SSH, PuTTY, WinSCP, etc., using this local IP from
   - Open `http://localhost:3000` in a browser (you can play and test mouse-pressed events to switch between the two videos
  
 ### Issues with autostart and wayladn -> Set Mouse Jiggle with sudo
-  - Becouse 
+  - Wayland It's quite painfull about start and hide mouse automatically. Didn't work to use hiding like [unclutter](https://www.baeldung.com/linux/mouse-cursor-hide) ( may be as a service with sudo permisiions might work, I didn't try it.
+  - So to hide mouse I've had to hack ubuntu with mouse jiggler in order to simulate user interaction:
+  - I've added visudo permisions to my user to be able to cal mouse jiggle script with sudo permisions and no pass: "cabina2 ALL=(ALL) NOPASSWD: /ruta/a/tu-script.sh"
+  - I've called this scritp as a service:
+      ````
+      [Unit]
+      Description=Ejecutar mi script al inicio
+      
+      [Service]
+      ExecStart=/bin/bash -c 'sudo /ruta/a/tu-script.sh'
+      Type=oneshot
+      RemainAfterExit=true
+      User=tu-usuario
+      
+      [Install]
+      WantedBy=default.target
+      ````
+      >> sudo systemctl enable mi-script.service
+      >> sudo systemctl start mi-script.service //test it first
 
-## Interaction
+## Hardware Button GPIO 
 - Connect PIN 27 to your button circuit for video switching.
 - Press and release this button to switch videos.
 - Create a button circuit connecting PIN 27 to the 3V3 power supply
@@ -56,5 +74,5 @@ Note: You can now connect via SSH, PuTTY, WinSCP, etc., using this local IP from
 
 ## Auto Start App
 - Add two scripts (.sh files) to Ubuntu's startup applications:
-  - Script to start the server
-  - Script to launch the app
+  - Script to load server: [loadServer.sh](https://github.com/carlesgutierrez/videoplayer-nodejs-p5js-gpio/blob/main/loadServer.sh)
+  - Script to start firefox at localhost in kiosk mode. [startCabinaAtFirefox.sh](https://github.com/carlesgutierrez/videoplayer-nodejs-p5js-gpio/blob/main/startCabinaAtFirefox.sh)
