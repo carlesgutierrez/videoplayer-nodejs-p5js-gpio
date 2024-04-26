@@ -1,8 +1,7 @@
-# p5js VideoPlayer switcher for RPI5 and Ubuntu 23.10
-
+# p5js VideoPlayer switcher for RPI5
 ## Steps:
 
-### Install Ubuntu 23.10 from PiImager ( check [video performance on Firefox](https://www.youtube.com/watch?v=6tFyuzJzDrc) )
+### Install Ubuntu 23.10 using PiImager from your computer to your SD( check [video performance on Firefox](https://www.youtube.com/watch?v=6tFyuzJzDrc) )
 After a succesfull installation let's do some configure:
 - Run `sudo apt update`
 - Deactivate the screensaver
