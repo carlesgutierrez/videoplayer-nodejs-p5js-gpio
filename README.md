@@ -10,7 +10,7 @@
 - Open the terminal
 - Change directory to Develop with `cd Develop`
 - Clone this repository using `git clone thisRepo`
-- Install Ubuntu updates and deactivate all automatic updates and notifications if required
+- Install Ubuntu updates and deactivate all [automatic updates and notifications if required](https://askubuntu.com/questions/1322292/how-do-i-turn-off-automatic-updates-completely-and-for-real)
 
 ### Install Software
 
@@ -37,11 +37,16 @@ Note: You can now connect via SSH, PuTTY, WinSCP, etc., using this local IP from
 ### Settings for Firefox
 - Firefox will be used to load our site since it performs better on RPI5 than Chrome
 - Go to Firefox settings, navigate to Security -> Permissions, and enable Auto-Play for Audio and Video
+- Disable this [option](https://www.reddit.com/r/firefox/comments/zlw0ey/is_there_a_way_to_get_rid_popout_this_video/) : media.videocontrols.picture-in-picture.video-toggle-enabled from about:config
+- Remove send data to firefox or any updates.
 
 ### AutoStart
 - Add two scripts to startup:
   - `node app.js` (the server will now be open and listening)
-  - Open `http://localhost:3000` in a browser (you can play and test mouse-pressed events to switch between the two videos)
+  - Open `http://localhost:3000` in a browser (you can play and test mouse-pressed events to switch between the two videos
+ 
+### Issues with autostart and wayladn -> Set Mouse Jiggle with sudo
+  - Becouse 
 
 ## Interaction
 - Connect PIN 27 to your button circuit for video switching.
