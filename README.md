@@ -1,8 +1,8 @@
-# p5js VideoPlayer switcher for RPI5 and Ubuntu 20.03
+# p5js VideoPlayer switcher for RPI5 and Ubuntu 23.10
 
 ## Steps:
 
-### Install 20.03 from PiImager
+### Install Ubuntu 23.10 from PiImager ( check [video performance on Firefox](https://www.youtube.com/watch?v=6tFyuzJzDrc) )
 After a succesfull installation let's do some configure:
 - Run `sudo apt update`
 - Deactivate the screensaver
@@ -24,7 +24,7 @@ Now you can now connect via SSH, PuTTY, WinSCP, etc., using this local IP from a
 - Use WinSCP to transfer two videos (`movie1.webm` and `movie2.webm`) into the `public/assets/` folder
 
 ### External remote controler: 
-The only one working option was to use teamviwer. There is an **arm64 version** working with this Ubuntu 20.03 (with **Wayland** ). 
+The only one working option was to use teamviwer. There is an **arm64 version** working with this Ubuntu 23.10 (with **Wayland** ). 
 Will allow u file transfer ( no issues ) and full remote control ( but will ask to user to admit the connection all times  )
 
 ## Install Node.js Project Requirements
