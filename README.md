@@ -12,18 +12,19 @@
 - Clone this repository using `git clone thisRepo`
 - Install Ubuntu updates and deactivate all [automatic updates and notifications if required](https://askubuntu.com/questions/1322292/how-do-i-turn-off-automatic-updates-completely-and-for-real)
 
-### Install Software
+## Install some Software for local ssh accessa
 
 - Install Node.js with `sudo apt install nodejs`
 - Install OpenSSH Server with `sudo apt install openssh-server`
 - Start the SSH service with `sudo systemctl start ssh`
 - Check SSH service status with `sudo systemctl status ssh`
 - Display network information with `ip addr show`
-
-### SSH / remote controler TIPS: 
-- You can now connect via SSH, PuTTY, WinSCP, etc., using this local IP from another computer on the same local network.
+Now you can now connect via SSH, PuTTY, WinSCP, etc., using this local IP from another computer on the same local network.
 - Use WinSCP to transfer two videos (`movie1.webm` and `movie2.webm`) into the `public/assets/` folder
-- Comercial alternative: Use teamviwer. There is a arm64 version working with wayland. Allow file transfer ( no issues ) and remote control (  will ask to user to admit the connection all times  )
+
+### External remote controler: 
+The only one working option was to use teamviwer. There is an **arm64 version** working with this Ubuntu 20.03 (with **Wayland** ). 
+Will allow u file transfer ( no issues ) and full remote control ( but will ask to user to admit the connection all times  )
 
 ## Install Node.js Project Requirements
 
