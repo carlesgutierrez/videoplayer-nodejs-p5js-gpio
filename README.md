@@ -1,6 +1,6 @@
-# p5js VideoPlayer switcher
-## for RPI5 and Ubuntu 20.03
+# p5js VideoPlayer switcher for RPI5 and Ubuntu 20.03
 
+## Steps:
 ### Configure Ubuntu
 - Run `sudo apt update`
 - Deactivate the screensaver
